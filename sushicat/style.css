@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+
+  .box-1 {
+    width: 300px;
+    background-color: skyblue;
+    font-size: 50px;
+    padding: 50px;
+    border: 10px dashed black;
+    margin-left: 50px;
+  }
