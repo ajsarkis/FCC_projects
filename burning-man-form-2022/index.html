@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Burning Man Roll Call 2022</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+  <h1 id="title">Burning Man Roll Call 2022</h1>
+  <form id="survey-form">
+    <fieldset>
+      <p id="description">Please fill out this form
+  </p> 
+    <label id="name-label">Name <input id="name" type="text" placeholder="Your full name" required></input>
+    <label id="email-label">Email <input id="email" type="email" placeholder="Your email address" required></input>
+    <label id="number-label">Guests <input id="number" type="number" min="0" max="2" placeholder="0" required></input>
+    <label>What are you bringing?
+          <select id='dropdown' name="referrer" >
+            <option value="">(select one)</option>
+            <option value="1">Food</option>
+            <option value="2">Water</option>
+            <option value="3">Drinks (alcohol)</option>
+            <option value="4">Building supplies</option>
+            <option value="5">Tools</option>
+            <option value="6">Natural medicine</option>
+            <option value="7">Synthetic medicine</option>
+          </select>
+        </label>
+        </fieldset>
+        <fieldset>
+          <p id="transportation">Transportation</p>
+        <label><input type="radio" name="skydivng-driving" class="inline" value="1" /> Skydiving in</label>
+        <label><input type="radio" name="skydivng-driving" class="inline" value="2" /> Driving in</label>
+        <label>
+          </fieldset>
+          <fieldset>
+          <p id="arrival-date">Arrival date</p>
+          <label><input type="checkbox" class="inline" value="1" name="27-28" required> Aug 27th</label>
+          <input type="checkbox" class="inline" value="1" name="27-28" required> Aug 28th</label>
+          <label>Comments:
+          <textarea name="bio" rows="3" cols="30" placeholder="Anything helpful for the crew to know..."></textarea>
+			  </label>
+        <label>
+        <input type="checkbox" name="terms" class="inline" value="info" required /> All information above is correct.
+        </label>
+        </fieldset>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+  </body>   
+</html>
