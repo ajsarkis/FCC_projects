@@ -1,0 +1,126 @@
+* {
+    font-family: Tahoma, Helvetica;
+  }
+  
+  p {
+    padding: 10px 0 0 20px;
+  
+  
+  }
+  div {
+    background: lightgray;
+    padding: 10px 0 0 20px;
+    margin: auto;
+    border: auto;
+  }
+  
+  .command {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  section {
+    width: 1000px;
+    margin: 0 auto 10px auto;
+    overflow: hidden; 
+    border: auto;
+  
+  }
+  
+  #navbar header {
+      color: black;
+      margin: 10px;
+      text-align: left;
+      font-size: 1.6em;
+      font-weight: bold;
+  }
+  
+  /*#navbar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }*/
+  
+  #navbar {
+      position: fixed;
+      min-width: 290px;
+      top: 0px;
+      left: 0px;
+      width: 300px;
+      height: 100%;
+      border-right: solid;
+      border-color: rgba(0, 22, 22, 0.4);
+  }
+  
+  nav {
+      display: block;
+  }
+  
+  #navbar ul {
+      height: 88%;
+      padding: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+  }
+  
+  ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+  }
+  
+  html, body {
+      min-width: 290px;
+      color: #4d4e53;
+      background-color: #ffffff;
+      font-family: 'Open Sans', Arial, sans-serif;
+      line-height: 1.5;
+  }
+  
+  #navbar li {
+      color: #4d4e53;
+      border-top: 1px solid;
+      list-style: none;
+      position: relative;
+      width: 100%;
+  }
+  
+  li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+  }
+  
+  #navbar a {
+      display: block;
+      padding: 10px 30px;
+      color: #4d4e53;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  /*
+  
+ul > li > .nav-link {
+    text-decoration: none;
+    color: black;
+}
+  
+a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+}
+
+*/

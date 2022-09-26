@@ -1,0 +1,267 @@
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, inintial-scale=1.0">
+<title>Technical Docummentation Page</title>
+<link rel="stylesheet" href="styles.css" />
+  </header>
+<body>
+  <nav id="navbar">
+    <header>
+      Discord <br>Developer Portal
+      </header>
+      <ul>
+<li><a class="nav-link" href="#Webhook_Resource">Webhook Resource</a></li>
+<li><a class="nav-link" href="#Create_Webhook">Create Webhook</a></li>
+<li><a class="nav-link" href="#Get_Channel_Webhooks">Get Channel Webhooks</a></li>
+<li><a class="nav-link" href="#Get_Guild_Webhooks">Get Guild Webhooks</a></li>
+<li><a class="nav-link" href="#Get_Webhook">Get Webhook</a></li>
+<li><a class="nav-link" href="#Get_Webhook_with_Token">Get Webhook with Token</a></li>
+<li><a class="nav-link" href="#Modify_Webhook">Modify Webhook</a></li>
+<li><a class="nav-link" href="#Modify_Webhook_with_Token">Modify Webhook with Token</a></li>
+<li><a class="nav-link" href="#Delete_Webhook">Delete Webhook</a></li>
+<li><a class="nav-link" href="#Delete_Webhook_with_Token">Delete Webhook with Token</a></li>
+<li><a class="nav-link" href="#Execute_Webhook">Execute Webhook</a></li>
+<li><a class="nav-link" href="#Execute_Slack-Compatible_Webhook">Execute Slack-Compatible Webhook</a></li>
+<li><a class="nav-link" href="#Execute_GitHub-Compatible_Webhook">Execute GitHub-Compatible Webhook</a></li>
+<li><a class="nav-link" href="#Get_Webhook_Message">Get Webhook Message</a></li>
+<li><a class="nav-link" href="#Edit_Webhook_Message">Edit Webhook Message</a></li>
+<li><a class="nav-link" href="#Delete_Webhook_Message">Delete Webhook Message</a>
+</li>
+<ul>
+</nav>
+  <main id="main-doc">
+
+<section class="main-section" id="Webhook_Resource">
+  <header>
+    <h1>Webhook Resource</h1>
+    </header>
+    <p>Webhooks are a low-effort way to post messages to channels in Discord. They do not require a bot user or authentication to use.</p>
+    <p>Example Incoming Webhook</p>
+    <div>
+  <code>
+    <pre>
+{      
+  "name": "test webhook",
+  "type": 1,
+  "channel_id": "199737254929760256",
+  "token": "3d89bb7572e0fb30d8128367b3b1b44fecd1726de135cbe28a41f8b2f777c372ba2939e72279b94526ff5d1bd4358d65cf11",
+  "avatar": null,
+  "guild_id": "199737254929760256",
+  "id": "223704706495545344",
+  "application_id": null,
+  "user": {
+    "username": "test",
+    "discriminator": "7479",
+    "id": "190320984123768832",
+    "avatar": "b004ec1740a63ca06ae2e14c5cee11f3",
+    "public_flags": 131328
+  }
+}
+  </code>
+    <pre>
+    </div>
+    <p>Example Channel Follower Webhook</p>
+    <div>
+    <code>
+      <pre>
+{
+  "type": 2,
+  "id": "752831914402115456",
+  "name": "Guildy name",
+  "avatar": "bb71f469c158984e265093a81b3397fb",
+  "channel_id": "561885260615255432",
+  "guild_id": "56188498421443265",
+  "application_id": null,
+  "source_guild": {
+    "id": "56188498421476534",
+    "name": "Guildy name",
+    "icon": "bb71f469c158984e265093a81b3397fb"
+  },
+  "source_channel": {
+    "id": "5618852344134324",
+    "name": "announcements"
+  },
+  "user": {
+    "username": "test",
+    "discriminator": "7479",
+    "id": "190320984123768832",
+    "avatar": "b004ec1740a63ca06ae2e14c5cee11f3",
+    "public_flags": 131328
+  }
+}
+    </pre>
+</code>
+</div>
+<p>Example Application Webhook</p>
+<div>
+  <code>
+    <pre>
+{
+  "type": 3,
+  "id": "658822586720976555",
+  "name": "Clyde",
+  "avatar": "689161dc90ac261d00f1608694ac6bfd",
+  "channel_id": null,
+  "guild_id": null,
+  "application_id": "658822586720976555"
+}
+      </pre>
+  </code>
+  </div>
+      
+
+</section>
+
+<section class="main-section" id="Create_Webhook">
+  <header>
+    <h2>Create Webhook</h2>
+    </header>
+    <p><span class="command">POST </span><strong>/channels/{channel.id}/webhooks</strong></p>
+<p>Creates a new webhook and returns a webhook object on success. Requires the MANAGE_WEBHOOKS permission.</p>
+<p>An error will be returned if a webhook name (name) is not valid. A webhook name is valid if:</p>
+    <ul>
+      <li>It does not contain the substring 'clyde' (case-insensitive).</li>
+      <li>It follows the nickname guidelines in the Usernames and Nicknames documentation, with an exception that webhook names can be up to 80 characters.</li>
+    </ul>
+    <div>
+<code>This endpoint supports the <strong>X-Audit-Log-Reason</strong> header.</code>
+    </div>
+</section>
+
+<section class="main-section" id="Get_Channel_Webhooks">
+    <header>
+    <h2>Get Channel Webhooks</h2>
+    </header>
+    <p><span class="command">GET </span><strong>/channels/{channel.id}/webhooks</strong></p>
+<p>Returns a list of channel webhook objects. Requires the <strong>MANAGE_WEBHOOKS</strong> permission.</p>
+</section>
+
+<section class="main-section" id="Get_Guild_Webhooks">
+    <header>
+    <h2>Get Guild Webhooks</h2>
+    </header>
+    <p><span class="command">GET </span><strong>/guilds/{guild.id}/webhooks</strong></p>
+<p>Returns a list of guild webhook objects. Requires the <strong>MANAGE_WEBHOOKS </strong>permission.</p>
+</section>
+
+<section class="main-section" id="Get_Webhook">
+    <header>
+    <h2>Get Webhook</h2>
+    </header>
+    <p><span class="command">GET </span><strong>/webhooks/{webhook.id}</strong></p>
+<p>Returns the new webhook object for the given id.</p>
+</section>
+
+<section class="main-section" id="Get_Webhook_with_Token">
+    <header>
+    <h2>Get Webhook with Token</h2>
+    </header>
+    <p><span class="command">GET </span><strong>/webhooks/{webhook.id}/{webhook.token}</strong></p>
+<p>Same as above, except this call does not require authentication and returns no user in the webhook object.</p>
+</section>
+
+<section class="main-section" id="Modify_Webhook">
+    <header>
+    <h2>Modify Webhook</h2>
+    </header>
+    <p><span class="command">PATCH </span><strong>/webhooks/{webhook.id}</strong></p>
+<p>Modify a webhook. Requires the <strong>MANAGE_WEBHOOKS</strong> permission. Returns the updated webhook object on success.</p>
+<div>
+<code>All parameters to this endpoint are optional. This endpoint supports the <strong>X-Audit-Log-Reason</strong> header.</code>
+</p>
+</div>
+</section>
+
+<section class="main-section" id="Modify_Webhook_with_Token">
+    <header>
+    <h2>Modify Webhook with Token</h2>
+    </header>
+    <p><span class="command">PATCH </span><strong>/webhooks/{webhook.id}/{webhook.token}</strong>
+<p>Same as above, except this call does not require authentication, does not accept a <strong>channel_id</strong> parameter in the body, and does not return a user in the webhook object.</p>
+</section>
+
+<section class="main-section" id="Delete_Webhook">
+    <header>
+    <h2>Delete Webhook</h2>
+    <p><span class="command">DELETE </span><strong>/webhooks/{webhook.id}</strong>
+<p>Delete a webhook permanently. Requires the <strong>MANAGE_WEBHOOKS</strong> permission. Returns a 204 No Content response on success.</p>
+<p>This endpoint supports the <strong>X-Audit-Log-Reason</strong> header.</p>
+    </header>
+</section>
+
+<section class="main-section" id="Delete_Webhook_with_Token">
+    <header>
+    <h2>Delete Webhook with Token</h2>
+    <p><span class="command">DELETE </span><strong>/webhooks/{webhook.id}/{webhook.token}</strong>
+<p>Same as above, except this call does not require authentication.</p>
+    </header>
+</section>
+
+<section class="main-section" id="Execute_Webhook">
+    <header>
+    <h2>Execute Webhook</h2>
+    <p><span class="command">POST </span><strong>/webhooks/{webhook.id}/{webhook.token}</strong>
+<p>Refer to Uploading Files for details on attachments and <strong>multipart/form-data</strong> requests. Returns a message or <strong>204 No Content</strong> depending on the <strong>wait</strong> query parameter.</p>
+<div>
+  <p>
+Note that when sending a message, you must provide a value for at least one of content, embeds, or file.
+</p>
+</div>
+<div>
+<p>If the webhook channel is a forum channel, you must provide either thread_id in the query string params, or thread_name in the JSON/form params. If thread_id is provided, the message will send in that thread. If thread_name is provided, a thread with that name will be created in the forum channel.</p>
+</div>
+<p>For the webhook embed objects, you can set every field except type (it will be rich regardless of if you try to set it), provider, video, and any height, width, or proxy_url values for images.</p>
+    </header>
+</section>
+
+<section class="main-section" id="Execute_Slack-Compatible_Webhook">
+    <header>
+    <h2>Execute Slack-Compatible Webhook</h2>
+    <p><span class="command">POST </span><strong>/webhooks/{webhook.id}/{webhook.token}/slack</strong>
+<p>Refer to Slack's documentation for more information. We do not support Slack's channel, icon_emoji, mrkdwn, or mrkdwn_in properties.</p>
+    </header>
+</section>
+
+<section class="main-section" id="Execute_GitHub-Compatible_Webhook">
+    <header>
+    <h2>Execute GitHub-Compatible Webhook</h2>
+    <p><span class="command">POST </span><strong>/webhooks/{webhook.id}/{webhook.token}/github</strong>
+<p>Add a new webhook to your GitHub repo (in the repo's settings), and use this endpoint as the "Payload URL." You can choose what events your Discord channel receives by choosing the "Let me select individual events" option and selecting individual events for the new webhook you're configuring.</p>
+    </header>
+</section>
+
+<section class="main-section" id="Get_Webhook_Message">
+    <header>
+    <h2>Get Webhook Message</h2>
+    </header>
+    <p><span class="command">GET </span><strong>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</strong>
+<p>Returns a previously-sent webhook message from the same token. Returns a message object on success.</p>
+</section>
+
+<section class="main-section" id="Edit_Webhook_Message">
+    <header>
+    <h2>Edit Webhook Message</h2>
+    </header>
+    <p><span class="command">PATCH </span><strong>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</strong>
+<p>Edits a previously-sent webhook message from the same token. Returns a message object on success.</p>
+
+<p>When the content field is edited, the mentions array in the message object will be reconstructed from scratch based on the new content. The <strong>allowed_mentions</strong> field of the edit request controls how this happens. If there is no explicit allowed_mentions in the edit request, the content will be parsed with default allowances, that is, without regard to whether or not an allowed_mentions was present in the request that originally created the message.</p>
+    <ul>
+      <li>Refer to Uploading Files for details on attachments and multipart/form-data requests. Any provided files will be appended to the message. To remove or replace files you will have to supply the attachments field which specifies the files to retain on the message after edit.</li>
+      <li>Starting with API v10, the attachments array must contain all attachments that should be present after edit, including retained and new attachments provided in the request body.
+</li>
+      <li>All parameters to this endpoint are optional and nullable.</li>
+</section>
+
+<section class="main-section" id="Delete_Webhook_Message">
+    <header>
+    <h2>Delete Webhook Message</h2>
+    </header>
+    <p><span class="command">DELETE </span><strong>/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}</strong>
+<p>Deletes a message that was created by the webhook. Returns a 204 No Content response on success.</p>
+</section
+
+  </main>
+</body>
+</html>
